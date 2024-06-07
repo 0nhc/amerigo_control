@@ -11,6 +11,7 @@
 #include <controller_manager/controller_manager.h>
 #include <boost/scoped_ptr.hpp>
 #include <ros/ros.h>
+#include <sensor_msgs/JointState.h>
 
 class AmerigoHardwareInterface : public hardware_interface::RobotHW
 {
@@ -41,6 +42,11 @@ class AmerigoHardwareInterface : public hardware_interface::RobotHW
         ros::Duration elapsed_time_;
         double loop_frequency_;
         boost::shared_ptr<controller_manager::ControllerManager> controller_manager_;
+
+        sensor_msgs::JointState joint_position_command_frame_;
+        ros::Publisher isaac_sim_joints_publisher_;
+        ros::Subscriber isaac_sim_joints_subscriber_;
+        void IsaacSimJointsCallback_(const sensor_msgs::JointState::ConstPtr& msg);
 };
 
 #endif

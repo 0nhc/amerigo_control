@@ -6,6 +6,7 @@ find_package(catkin
   COMPONENTS
   roscpp
   rospy
+  sensor_msgs
   controller_manager
   amerigo_description
 )
@@ -16,6 +17,7 @@ catkin_package(
   CATKIN_DEPENDS 
   roscpp
   rospy
+  sensor_msgs
   controller_manager
   amerigo_description
 )

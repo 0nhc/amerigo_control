@@ -4,7 +4,7 @@
     <rosparam file="$(find amerigo_control)/config/joint_limits.yaml" command="load"/>
 
     <arg name="robot_name" default="/"/>
-    <arg name="use_sim_time" default="false"/>
+    <arg name="use_sim_time" default="true"/>
     <arg name="description_name" default="robot_description"/>
     <arg name="description_file" default="$(find amerigo_description)/urdf/amerigo_description.xacro"/>
 
