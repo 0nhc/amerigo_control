@@ -1,0 +1,70 @@
+amerigo_controllers:
+    # Publish all joint states -----------------------------------
+    joints_update:
+      type: joint_state_controller/JointStateController
+      publish_rate: 50.0
+    
+    # Position Controllers ---------------------------------------
+    finger1_j1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger1_j1
+
+    finger1_j2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger1_j2
+
+    finger1_j3_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger1_j3
+
+    finger1_j4_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger1_j4
+
+    finger2_j1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger2_j1
+
+    finger2_j2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger2_j2
+
+    finger2_j3_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger2_j3
+
+    finger2_j4_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger2_j4
+
+    finger3_j1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger3_j1
+
+    finger3_j2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger3_j2
+
+    finger3_j3_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger3_j3
+
+    finger3_j4_position_controller:
+      type: position_controllers/JointPositionController
+      joint: finger3_j4
+
+    thumb_j1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: thumb_j1
+
+    thumb_j2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: thumb_j2
+
+    thumb_j3_position_controller:
+      type: position_controllers/JointPositionController
+      joint: thumb_j3
+
+    thumb_j4_position_controller:
+      type: position_controllers/JointPositionController
+      joint: thumb_j4

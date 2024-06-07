@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam file="$(find amerigo_control)/config/controllers.yaml" command="load"/>
+    <rosparam file="$(find amerigo_control)/config/joint_limits.yaml" command="load"/>
+
+    <arg name="robot_name" default="/"/>
+    <arg name="use_sim_time" default="false"/>
+    <arg name="description_name" default="robot_description"/>
+    <arg name="description_file" default="$(find amerigo_description)/urdf/amerigo_description.xacro"/>
+
+    <param name="$(arg description_name)" textfile="$(arg description_file)"/>
+    <param name="use_sim_time" value="$(arg use_sim_time)" />
+    <param name="robot_name" value="$(arg robot_name)"/>
+    
+    <group ns="$(arg robot_name)">
+        <node name="amerigo_hardware_interface_node" pkg="amerigo_control" type="amerigo_hardware_interface_node" output="screen">
+            <param name="loop_frequency" value="50.0"/>
+        </node>
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find amerigo_description)/rviz/urdf_viewer.rviz" />
+
+        <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+            args="
+                    amerigo_controllers/joints_update
+                    amerigo_controllers/finger1_j1_position_controller
+                    amerigo_controllers/finger1_j2_position_controller
+                    amerigo_controllers/finger1_j3_position_controller
+                    amerigo_controllers/finger1_j4_position_controller
+                    amerigo_controllers/finger2_j1_position_controller
+                    amerigo_controllers/finger2_j2_position_controller
+                    amerigo_controllers/finger2_j3_position_controller
+                    amerigo_controllers/finger2_j4_position_controller
+                    amerigo_controllers/finger3_j1_position_controller
+                    amerigo_controllers/finger3_j2_position_controller
+                    amerigo_controllers/finger3_j3_position_controller
+                    amerigo_controllers/finger3_j4_position_controller
+                    amerigo_controllers/thumb_j1_position_controller
+                    amerigo_controllers/thumb_j2_position_controller
+                    amerigo_controllers/thumb_j3_position_controller
+                    amerigo_controllers/thumb_j4_position_controller
+                    
+        "/>
+    </group>
+
+</launch>
