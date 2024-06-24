@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="amerigo_node" pkg="amerigo_control" type="amerigo_node.py" output="screen"/>
+</launch>
