@@ -9,6 +9,8 @@ find_package(catkin
   sensor_msgs
   controller_manager
   amerigo_description
+  amerigo_msgs
+  dynamixel_sdk
 )
 
 catkin_package(
@@ -20,6 +22,8 @@ catkin_package(
   sensor_msgs
   controller_manager
   amerigo_description
+  amerigo_msgs
+  dynamixel_sdk
 )
 
 include_directories(
@@ -32,6 +36,9 @@ add_library(amerigo_hardware_interface src/ros_interface/amerigo_hardware_interf
 target_link_libraries(amerigo_hardware_interface ${catkin_LIBRARIES})
 add_executable(amerigo_hardware_interface_node src/ros_nodes/amerigo_hardware_interface_node.cpp)
 target_link_libraries(amerigo_hardware_interface_node amerigo_hardware_interface ${catkin_LIBRARIES})
+
+add_executable(dynamixel_node src/dynamixel_interface/dynamixel_node.cpp)
+target_link_libraries(dynamixel_node ${catkin_LIBRARIES})
 
 install(TARGETS 
   amerigo_hardware_interface
